@@ -15,9 +15,9 @@ def main():
     LANGUAGE = "en"
 
     # Make a GET request to the News API to fetch news articles related to the specified topic wth parameters ('q' , 'language', and 'apiKey')
-    request = requests.get(f"{NEWS_API_ENDOINT_EVERYTHING}?q={TOPIC}&language={LANGUAGE}&apiKey={NEWS_API_KEY}")
+    response = requests.get(f"{NEWS_API_ENDOINT_EVERYTHING}?q={TOPIC}&language={LANGUAGE}&apiKey={NEWS_API_KEY}")
     # Using `request.json()` is better to access data using familiar Python syntax, such as dictionary keys and list indices than using `request.text` which is a plain string (str type)
-    content = request.json()
+    content = response.json()
 
     # define the text block of all articles to be sent by email and total number of articles 
     all_articles_data = ""
