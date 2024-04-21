@@ -21,7 +21,7 @@ News Aggregator is a command-line tool that fetches news articles from an API ba
 5. Execute the script in the command line interface (CLI) with two arguments for topic and language using the following command: `python main.py tesla en`
 
 ## Usage
-1. Run the script using `python main.py` or with two arguments for topic and language using `python main.py tesla en`.
+1. Run the script using `python main.py`, or provide two arguments for topic and language like `python main.py tesla en`, or simply specify the topic as a single argument like `python main.py tesla` (default language is specified in this case).
 2. Enter the topic you want to get news about when prompted.
 3. Enter the language code in ISO format (e.g., 'en' for English) when prompted.
 4. Check your email for the latest news articles.
