@@ -1,15 +1,9 @@
 import smtplib
 import ssl
-import os
-from dotenv import load_dotenv
+from constants import SENDER_EMAIL, SENDER_PASSWORD, RECEIVER_EMAIL
 
 
 def send_email(message, subject):
-
-    load_dotenv()
-    username = os.getenv("USER")
-    password = os.getenv("PASSWORD")
-    receiver = os.getenv("RECEIVER")
 
     host = "smtp.gmail.com"
     port = 465
@@ -23,16 +17,13 @@ def send_email(message, subject):
 
     try:
         with smtplib.SMTP_SSL(host, port, context=context) as server:
-            server.login(username, password)
-            server.sendmail(username, receiver, message)
+            server.login(SENDER_EMAIL, SENDER_PASSWORD)
+            server.sendmail(SENDER_EMAIL, RECEIVER_EMAIL, message)
         # Return True to indicate successful email sending
         return True
-    
+
     except smtplib.SMTPException as e:
         # Log the error for debugging purposes
         # logging.error(f"Failed to send email: {e}")
         # Return False to indicate email sending failure
         return False
-        
-
-    
