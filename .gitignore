@@ -12,3 +12,6 @@ __pycache__/
 
 # Ignore Solution folder
 Solution/
+
+# Ignore Exercises folder
+Exercises/
