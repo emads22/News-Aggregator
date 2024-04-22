@@ -10,7 +10,6 @@ NEWS_API_ENDOINT_EVERYTHING = "https://newsapi.org/v2/everything"
 NEWS_API_KEY = os.getenv("NEWS_apiKey")
 SENDER_EMAIL = os.getenv("USER")
 SENDER_PASSWORD = os.getenv("PASSWORD")
-RECEIVER_EMAIL = os.getenv("RECEIVER")
 DEFAULT_LANGUAGE = "en"
 
 # Validation patterns
@@ -18,3 +17,4 @@ DEFAULT_LANGUAGE = "en"
 TOPIC_PATTERN = r'^\w+$'
 # language consists of exactly two lowercase letters
 LANGUAGE_PATTERN = r'^[a-z]{2}$'
+EMAIL_PATTERN = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'

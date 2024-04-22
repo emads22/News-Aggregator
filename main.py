@@ -44,6 +44,17 @@ def main(topic=None, language=None):
         language = input(
             "\n--- Enter a language code in ISO format (e.g., 'en' for English):  ").strip().lower()
 
+    while True:
+        # Prompt user to enter receiver email
+        receiver = input("\n--- Please enter a receiver email:  ").strip()
+        
+        if re.match(EMAIL_PATTERN, receiver):
+            # If entered email format is valid, exit loop
+            break
+        else:
+            # If email format is invalid, display error message and prompt user to try again
+            print("\n--- Invalid email format. Please try again. ---")
+
     # Make a GET request to the News API to fetch news articles related to the specified topic with parameters ('q' , 'language', and 'apiKey')
     try:
         response = requests.get(f"{NEWS_API_ENDOINT_EVERYTHING}?q={
@@ -81,13 +92,13 @@ def main(topic=None, language=None):
     if all_articles_data.strip():
         # send an email of all these articles text block and handle the outcome
         subject = f"{topic.title()} News: The Latest Updates and Headlines"
-        if send_email(all_articles_data, subject):
-            sys.exit("\n--- Email sent successfully ---\n")
+        if send_email(all_articles_data, subject, receiver):
+            sys.exit(f'\n\n--- "{topic.title()}" news emailed successfully. ---\n\n')
         else:
-            sys.exit("\n--- Failed to send email. Please try again later ---\n")
+            sys.exit("\n\n--- Failed to send email. Please try again later ---\n\n")
     else:
         sys.exit(
-            "\n--- No articles found for the provided topic. Please try again. ---\n")
+            "\n\n--- No articles found for the provided topic. Please try again. ---\n\n")
 
 
 # Check if the script is being run as the main program

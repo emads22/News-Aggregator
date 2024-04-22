@@ -1,9 +1,20 @@
 import smtplib
 import ssl
-from constants import SENDER_EMAIL, SENDER_PASSWORD, RECEIVER_EMAIL
+from constants import SENDER_EMAIL, SENDER_PASSWORD
 
 
-def send_email(message, subject):
+def send_email(message, subject, receiver_email):
+    """
+    Sends an email with the specified message and subject to the given receiver email address.
+
+    Parameters:
+        message (str): The content of the email message.
+        subject (str): The subject of the email.
+        receiver_email (str): The email address of the recipient.
+
+    Returns:
+        bool: True if the email was sent successfully, False otherwise.
+    """
 
     host = "smtp.gmail.com"
     port = 465
@@ -18,7 +29,7 @@ def send_email(message, subject):
     try:
         with smtplib.SMTP_SSL(host, port, context=context) as server:
             server.login(SENDER_EMAIL, SENDER_PASSWORD)
-            server.sendmail(SENDER_EMAIL, RECEIVER_EMAIL, message)
+            server.sendmail(SENDER_EMAIL, receiver_email, message)
         # Return True to indicate successful email sending
         return True
 

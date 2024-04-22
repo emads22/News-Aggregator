@@ -15,9 +15,9 @@ News Aggregator is a command-line tool that fetches news articles from an API ba
 3. Install the required dependencies using `pip install -r requirements.txt`.
 4. Configure the necessary parameters such as `NEWS_API_KEY` and `DEFAULT_LANGUAGE` in `constants.py`.
    - Ensure the `NEWS_API_KEY` is obtained from the [News API](https://newsapi.org/) website.
-   - Add the receiver email address under `RECEIVER_EMAIL` in `constants.py`.
-   - Add the sender email address under `SENDER_EMAIL`.
+   - Add the sender email address under `SENDER_EMAIL` in `constants.py`.
    - Add the sender email password under `SENDER_PASSWORD`.
+   - When prompted, enter the receiver email address.
 5. Execute the script in the command line interface (CLI) with two arguments for topic and language using the following command: `python main.py tesla en`
 
 ## Usage
